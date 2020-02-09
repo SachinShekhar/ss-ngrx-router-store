@@ -1,12 +1,23 @@
 import { NgModule } from '@angular/core';
-import { SsNgrxRouterStoreComponent } from './ss-ngrx-router-store.component';
+import {
+  routerReducer,
+  StoreRouterConfig,
+  StoreRouterConnectingModule
+} from '@ngrx/router-store';
+import { StoreModule } from '@ngrx/store';
+import { SSRouterSerializer } from './ss-ngrx-router-store.serializer';
 
+export const ROUTER_FEATURE_KEY = 'router';
 
+const routerConfig: StoreRouterConfig = {
+  stateKey: ROUTER_FEATURE_KEY,
+  serializer: SSRouterSerializer
+};
 
 @NgModule({
-  declarations: [SsNgrxRouterStoreComponent],
   imports: [
-  ],
-  exports: [SsNgrxRouterStoreComponent]
+    StoreModule.forFeature(ROUTER_FEATURE_KEY, routerReducer),
+    StoreRouterConnectingModule.forRoot(routerConfig)
+  ]
 })
-export class SsNgrxRouterStoreModule { }
+export class SimpleSerializedNgRxRouterStoreModule {}
