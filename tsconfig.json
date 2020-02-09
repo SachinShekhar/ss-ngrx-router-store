@@ -17,7 +17,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ss-ngrx-router-store": [
+        "dist/ss-ngrx-router-store/ss-ngrx-router-store",
+        "dist/ss-ngrx-router-store"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
