@@ -3,8 +3,8 @@
   "version": "1.1.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --open",
-    "build": "ng build",
+    "start:demo": "ng serve --open",
+    "build:demo": "ng build --output-hashing=all && copyfiles .nojekyll docs",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
