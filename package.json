@@ -4,7 +4,7 @@
   "scripts": {
     "build:lib": "ng build ss-ngrx-router-store --prod",
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --open",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

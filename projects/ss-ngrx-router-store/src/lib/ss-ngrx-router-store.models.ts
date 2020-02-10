@@ -1,5 +1,5 @@
 import { Data, Params } from '@angular/router';
-import { BaseRouterStoreState } from '@ngrx/router-store';
+import { BaseRouterStoreState, RouterReducerState } from '@ngrx/router-store';
 
 export interface SimpleSerializedRouterState extends BaseRouterStoreState {
   url: string;
@@ -8,3 +8,7 @@ export interface SimpleSerializedRouterState extends BaseRouterStoreState {
   fragment: string;
   data: Data;
 }
+
+export type SSRouterPartialState = RouterReducerState<
+  SimpleSerializedRouterState
+>;

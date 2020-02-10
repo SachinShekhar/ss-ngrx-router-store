@@ -1,13 +1,9 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { RouterReducerState } from '@ngrx/router-store';
-import { ROUTER_FEATURE_KEY } from './ss-ngrx-router-store.module';
-import { SimpleSerializedRouterState } from './ss-ngrx-router-store.models';
+import { ROUTER_FEATURE_KEY } from './ss-ngrx-router-store.config';
 
-export type RouterPartialState = RouterReducerState<
-  SimpleSerializedRouterState
->;
+import { SSRouterPartialState } from './ss-ngrx-router-store.models';
 
-export const getRouterState = createFeatureSelector<RouterPartialState>(
+export const getRouterState = createFeatureSelector<SSRouterPartialState>(
   ROUTER_FEATURE_KEY
 );
 

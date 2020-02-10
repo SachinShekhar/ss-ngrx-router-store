@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import { SimpleSerializedNgRxRouterStoreModule } from 'ss-ngrx-router-store';
+import { SSNgRxRouterStoreModule } from 'ss-ngrx-router-store';
 
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
@@ -44,7 +44,7 @@ const routes: Routes = [
       maxAge: 25,
       logOnly: environment.production
     }),
-    SimpleSerializedNgRxRouterStoreModule
+    SSNgRxRouterStoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-
-import { getRouterState } from 'ss-ngrx-router-store';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,13 +6,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./demo.component.css']
 })
 export class DemoComponent implements OnInit {
-  constructor(private store: Store<any>, private router: Router) {}
+  constructor(private router: Router) {}
 
-  routerState$: Observable<any>;
-  for: string;
-  ngOnInit(): void {
-    this.routerState$ = this.store.select<any>(getRouterState);
-  }
+  ngOnInit(): void {}
 
   navigate(value: string): void {
     switch (value) {

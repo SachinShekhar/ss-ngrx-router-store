@@ -112,7 +112,7 @@
       "projectType": "library",
       "root": "projects/ss-ngrx-router-store",
       "sourceRoot": "projects/ss-ngrx-router-store/src",
-      "prefix": "lib",
+      "prefix": "ss",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -141,9 +141,7 @@
               "projects/ss-ngrx-router-store/tsconfig.lib.json",
               "projects/ss-ngrx-router-store/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
