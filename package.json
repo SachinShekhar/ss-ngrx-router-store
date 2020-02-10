@@ -2,13 +2,14 @@
   "name": "ss-ngrx-router-store-library",
   "version": "0.0.0",
   "scripts": {
-    "build:lib": "ng build ss-ngrx-router-store --prod",
     "ng": "ng",
     "start": "ng serve --open",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build:lib": "ng build ss-ngrx-router-store --prod",
+    "publish:lib": "npm publish dist/ss-ngrx-router-store"
   },
   "private": true,
   "dependencies": {
