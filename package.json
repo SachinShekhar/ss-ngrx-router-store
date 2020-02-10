@@ -1,6 +1,6 @@
 {
   "name": "ss-ngrx-router-store-library",
-  "version": "0.0.0",
+  "version": "1.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open",
@@ -9,7 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:lib": "ng build ss-ngrx-router-store --prod",
-    "publish:lib": "npm publish dist/ss-ngrx-router-store"
+    "copy:assets": "copyfiles *.md *.png LICENSE dist/ss-ngrx-router-store",
+    "publish:lib": "npm run copy:assets && npm publish dist/ss-ngrx-router-store"
   },
   "private": true,
   "dependencies": {
@@ -38,6 +39,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
+    "copyfiles": "^2.2.0",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.3.0",
