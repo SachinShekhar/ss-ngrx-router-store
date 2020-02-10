@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="navigation">
+    <b>Params: </b>
+    <a (click)="navigate('params')">folders/:folderId/mails/:mailId</a>
+    <br />
+    <b>Matrix Params: </b>
+    <a (click)="navigate('matrixParams')"
+      >folders/:folderId/mails/:mailId;fullView=true</a
+    >
+    <br />
+    <b>Query Params: </b>
+    <a (click)="navigate('queryParams')"
+      >?search=ss-ngrx-store-router?type=angular-library</a
+    >
+    <br />
+    <b>Fragment: </b>
+    <a (click)="navigate('fragment')">#popup</a>
+    <br />
+    <b>Data: </b>
+    <a (click)="navigate('data')">route-with-static-data</a>
+    <p>
+      Feel free to experiment in the address bar..
+    </p>
+  </div>
+  <div class="state">
+    <h3>SS Router State:</h3>
+    <pre>
+      {{ routerState$ | async | json }}
+    </pre>
+  </div>
+</div>
