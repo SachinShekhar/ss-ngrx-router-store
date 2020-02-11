@@ -1,10 +1,14 @@
 # Simple Serialized NgRx Router Store
 
-`ss-ngrx-router-store` package is a library which serializes Angular router snapshot and puts it into NgRx store. It also searches entire route tree to bring route-specific attributes at one place (no need to think about children, firstChild, parent, root etc). The result is very clean ([check demo](https://sachinshekhar.github.io/ss-ngrx-router-store)). It is useful to newbies and experts alike.
+![Build](https://github.com/SachinShekhar/ss-ngrx-router-store/workflows/Build/badge.svg) ![GitHub last commit](https://img.shields.io/github/last-commit/SachinShekhar/ss-ngrx-router-store?logo=github) ![npm (tag)](https://img.shields.io/npm/v/ss-ngrx-router-store/latest?logo=npm) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/ss-ngrx-router-store?label=npm%20-%20minzipped&logo=npm) ![NPM](https://img.shields.io/npm/l/ss-ngrx-router-store)
+
+`ss-ngrx-router-store` library serializes Angular router snapshots for NgRx Router Store. It searches entire route tree and puts only useful attributes into NgRx store (no need to think about children, firstChild, parent, root etc). The result is very clean ([check demo](https://sachinshekhar.github.io/ss-ngrx-router-store)). It is useful to newbies and experts alike.
 
 ![Demo](./demo.png)
 
 ## Installation
+
+![npm peer dependency version](https://img.shields.io/npm/dependency-version/ss-ngrx-router-store/peer/@angular/router?logo=angular) ![npm peer dependency version](https://img.shields.io/npm/dependency-version/ss-ngrx-router-store/peer/@ngrx/router-store)
 
 1.  Make sure that you've installed and setup `@angular/router` and `@ngrx/store`.
 
