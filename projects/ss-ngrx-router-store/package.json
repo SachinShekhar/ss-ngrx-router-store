@@ -1,6 +1,6 @@
 {
   "name": "ss-ngrx-router-store",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Simple Serialized NgRx Router Store library serializes Angular router snapshots for NgRx Router Store. It searches entire route tree and puts only useful attributes into NgRx store. It is useful to newbies and experts alike.",
   "repository": {
     "type": "git",
