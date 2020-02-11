@@ -95,7 +95,7 @@ export class YourComponent implements OnInit {
   params$: Observable<{ chatId: string }>;
 
   ngOnInit(): void {
-    this.routerState$ = this.store.select<{ chatId: string }>(getParams);
+    this.params$ = this.store.select<{ chatId: string }>(getParams);
   }
 }
 ```
@@ -183,4 +183,4 @@ Query Params and Fragment don't have such limitations because they are global to
 <ss-ngrx-router-store-state></ss-ngrx-router-store-state>
 ```
 
-will reactively print entire serialized router state on any page. You can use it for debugging purposes in case you are away from your dev environment and you don't have access to `Redux Devtools`.
+will reactively print entire serialized router state on any page. You can use it for debugging purposes in case you are away from your dev environment and you don't have access to `Redux Devtools`. The library's [demo page](https://sachinshekhar.github.io/ss-ngrx-router-store/) uses the same component to print router state on the page.
