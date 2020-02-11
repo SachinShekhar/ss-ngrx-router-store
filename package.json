@@ -4,7 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start:demo": "ng serve --open",
-    "build:demo": "ng build --output-hashing=all && copyfiles .nojekyll docs",
+    "create-nojekyll": "node -e \"require('fs').open('docs/.nojekyll', 'w', (err, file) => { if (err) throw err; console.log('Created!');})\"",
+    "create-404": "node -e \"require('fs').copyFile('docs/index.html', 'docs/404.html', (err) => { if (err) throw err; console.log('Copied!');})\"",
+    "build:demo": "ng build --output-hashing=all && npm run create-nojekyll && npm run create-404",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
