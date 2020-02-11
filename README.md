@@ -1,1 +1,182 @@
-Simple Serialized NgRx Router Store
+# Simple Serialized NgRx Router Store
+
+`ss-ngrx-router-store` package is a library which serializes Angular router snapshot and puts it into NgRx store. It also searches entire route tree to bring route-specific attributes at one place (no need to think about children, firstChild, parent, root etc). The result is very clean ([check demo](https://sachinshekhar.github.io/ss-ngrx-router-store)). It is useful to newbies and experts alike.
+
+![Demo](./demo.png)
+
+## Installation
+
+1.  Make sure that you've installed and setup `@angular/router` and `@ngrx/store`.
+
+2.  ```
+    npm install --save ss-ngrx-router-store @ngrx/router-store
+    ```
+
+3.  Import `SSNgRxRouterStoreModule` in `app.module.ts`:
+
+    ```typescript
+
+    import { BrowserModule } from '@angular/platform-browser';
+    import { NgModule } from '@angular/core';
+    import { RouterModule, Routes } from '@angular/router';
+    import { StoreModule } from '@ngrx/store';
+    import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+    import { SSNgRxRouterStoreModule } from 'ss-ngrx-router-store';
+
+    ....
+    ....
+
+    @NgModule({
+        declarations: [AppComponent],
+        imports: [
+            BrowserModule,
+            RouterModule.forRoot(routes),
+            StoreModule.forRoot(reducers, { metaReducers }),
+            StoreDevtoolsModule.instrument({
+                maxAge: 25,
+                logOnly: environment.production
+            }),
+            SSNgRxRouterStoreModule
+        ],
+        providers: [],
+        bootstrap: [AppComponent]
+    })
+    export class AppModule {}
+
+    ```
+
+    No need to install anything from `@ngrx/router-store`. Also, keep in mind that import orders matter.
+
+4.  Done! You can see `router` state in `Redux DevTools` browser extensions.
+
+### For Advanced Users
+
+`SSNgRxRouterStoreModule` uses default settings of `@ngrx/router-store`. If you want to override default settings, you can setup `@ngrx/router-store` yourself and use serializer provided by `ss-ngrx-router-store`. For example:
+
+```typescript
+import { SSRouterSerializer } from 'ss-ngrx-router-store';
+
+@NgModule({
+    imports: [
+        StoreRouterConnectingModule.forRoot({
+            stateKey: 'clean-router',
+            serializer: SSRouterSerializer,
+            navigationActionTiming: NavigationActionTiming.PostActivation
+        })
+        ]
+    })
+```
+
+## Usage
+
+`ss-ngrx-router-store` provides lots of selectors which you can use in your app.
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { getParams } from 'ss-ngrx-router-store';
+
+@Component({
+  template: `
+    <p>
+      {{ (params$ | async).chatId }}
+    </p>
+  `,
+  styles: []
+})
+export class YourComponent implements OnInit {
+  constructor(private store: Store<any>) {}
+
+  params$: Observable<{ chatId: string }>;
+
+  ngOnInit(): void {
+    this.routerState$ = this.store.select<{ chatId: string }>(getParams);
+  }
+}
+```
+
+### List of Selectors
+
+| Selectors       | Usage                                                               |
+| --------------- | ------------------------------------------------------------------- |
+| getRouterState  | Select partial state of NgRx Router Store                           |
+| getRouteMap     | Select map containing URL, Params, Query Params, Fragment & Data    |
+| getNavigationId | Select Navigation Id which automatically increments upon navigation |
+| getURL          | Select current URL visible in the address bar (without hostname)    |
+| getParams       | Select Params (including Matrix Params) from all routes             |
+| getQueryParams  | Select global Query Params                                          |
+| getFragment     | Select global Fragment                                              |
+| getData         | Select static data from all routes                                  |
+
+## Limitations
+
+If keys of multiple params are same, only child route param will be serialized because of limitation of `Typescript` / `Javascript`. e.g. If your path is
+
+```
+path: 'folder/:id/mail/:id'
+```
+
+and you visit `folder/inbox/mail/122458656`, your router state will only register
+
+```
+params: {
+    id: 122458656
+}
+```
+
+not `id: 'inbox'`.
+
+**Solution**: Be creative with key names and avoid duplicates. e.g. If your path is
+
+```
+path: 'folder/:folderId/mail/:mailId
+```
+
+and you visit `folder/inbox/mail/122458656`, your router state will properly register
+
+```
+params: {
+    folderId: 'inbox',
+    mailId: 122458656
+}
+```
+
+. This limitation is also applicable to static `data` because it is also route-specific.
+
+Query Params and Fragment don't have such limitations because they are global to every route in the tree.
+
+## Interfaces
+
+`ss-ngrx-router-store` also exposes interfaces used by serialized state. You can use them to write type-safe codes.
+
+`SimpleSerializedRouterState`
+
+```typescript
+{
+  url: string;
+  params: Params;
+  queryParams: Params;
+  fragment: string;
+  data: Data;
+}
+```
+
+(`Params` and `Data` are from `@angular/router`)
+
+`SSRouterPartialState`
+
+```typescript
+{
+  state: SimpleSerializedRouterState;
+  navigationId: number;
+}
+```
+
+## Component
+
+```html
+<ss-ngrx-router-store-state></ss-ngrx-router-store-state>
+```
+
+will reactively print entire serialized router state on any page. You can use it for debugging purposes in case you are away from your dev environment and you don't have access to `Redux Devtools`.

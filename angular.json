@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ss-ngrx-router-store-library",
+            "outputPath": "docs",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -104,6 +104,44 @@
             "production": {
               "devServerTarget": "ss-ngrx-router-store-library:serve:production"
             }
+          }
+        }
+      }
+    },
+    "ss-ngrx-router-store": {
+      "projectType": "library",
+      "root": "projects/ss-ngrx-router-store",
+      "sourceRoot": "projects/ss-ngrx-router-store/src",
+      "prefix": "ss",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ss-ngrx-router-store/tsconfig.lib.json",
+            "project": "projects/ss-ngrx-router-store/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ss-ngrx-router-store/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ss-ngrx-router-store/src/test.ts",
+            "tsConfig": "projects/ss-ngrx-router-store/tsconfig.spec.json",
+            "karmaConfig": "projects/ss-ngrx-router-store/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ss-ngrx-router-store/tsconfig.lib.json",
+              "projects/ss-ngrx-router-store/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }

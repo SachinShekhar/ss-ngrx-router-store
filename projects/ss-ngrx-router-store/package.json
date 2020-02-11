@@ -1,0 +1,33 @@
+{
+  "name": "ss-ngrx-router-store",
+  "version": "1.1.0",
+  "description": "Simple Serialized NgRx Router Store library serializes Angular router snapshot and puts it into NgRx store. It is useful to newbies and experts alike.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SachinShekhar/ss-ngrx-router-store",
+    "directory": "projects/ss-ngrx-router-store"
+  },
+  "bugs": {
+    "url": "https://github.com/SachinShekhar/ss-ngrx-router-store/issues"
+  },
+  "homepage": "https://ss-ngrx-router-store.github.io",
+  "author": "Sachin Shekhar (https://sachinshekhar.com)",
+  "keywords": [
+    "angular",
+    "angular-router",
+    "ngrx",
+    "ngrx-store",
+    "ngrx-router-store",
+    "ss-ngrx-router-store",
+    "simple-serialized-ngrx-router-store"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": "^9.0.0 || ^8.0.0",
+    "@angular/core": "^9.0.0 || ^8.0.0",
+    "@angular/router": "^9.0.0 || ^8.0.0",
+    "tslib": "^1.10.0",
+    "@ngrx/router-store": "^9.0.0 || ^8.0.0",
+    "@ngrx/router": "^9.0.0 || ^8.0.0"
+  }
+}
