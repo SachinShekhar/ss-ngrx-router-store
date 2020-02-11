@@ -15,7 +15,7 @@ export class DemoComponent implements OnInit {
       case 'params':
         this.router.navigate(['folders', 'inbox', 'mails', '524613875'], {
           preserveFragment: true,
-          preserveQueryParams: true
+          queryParamsHandling: 'preserve'
         });
         break;
       case 'matrixParams':
@@ -23,7 +23,7 @@ export class DemoComponent implements OnInit {
           ['folders', 'inbox', 'mails', '524613875', { fullView: true }],
           {
             preserveFragment: true,
-            preserveQueryParams: true
+            queryParamsHandling: 'preserve'
           }
         );
         break;
@@ -39,13 +39,13 @@ export class DemoComponent implements OnInit {
       case 'fragment':
         this.router.navigate([], {
           fragment: 'popup',
-          preserveQueryParams: true
+          queryParamsHandling: 'preserve'
         });
         break;
       case 'data':
         this.router.navigate(['route-with-static-data'], {
           preserveFragment: true,
-          preserveQueryParams: true
+          queryParamsHandling: 'preserve'
         });
         break;
 
