@@ -1,0 +1,11 @@
+h1 {
+  margin-bottom: 5px;
+}
+
+.shields {
+  margin-bottom: 20px;
+}
+
+.shields > a {
+  margin-right: 5px;
+}
