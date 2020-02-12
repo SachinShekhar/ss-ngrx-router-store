@@ -1,14 +1,14 @@
 # Simple Serialized NgRx Router Store
 
-![Build](https://github.com/SachinShekhar/ss-ngrx-router-store/workflows/Build/badge.svg) ![GitHub last commit](https://img.shields.io/github/last-commit/SachinShekhar/ss-ngrx-router-store?logo=github) ![npm (tag)](https://img.shields.io/npm/v/ss-ngrx-router-store/latest?logo=npm) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/ss-ngrx-router-store?label=npm%20-%20minzipped&logo=npm) ![NPM](https://img.shields.io/npm/l/ss-ngrx-router-store)
+[![Build](https://github.com/SachinShekhar/ss-ngrx-router-store/workflows/Build/badge.svg)](https://github.com/SachinShekhar/ss-ngrx-router-store/actions?query=workflow%3ABuild) [![GitHub last commit](https://img.shields.io/github/last-commit/SachinShekhar/ss-ngrx-router-store?logo=github)](https://github.com/SachinShekhar/ss-ngrx-router-store) [![npm latest version](https://img.shields.io/npm/v/ss-ngrx-router-store/latest?logo=npm)](https://www.npmjs.com/package/ss-ngrx-router-store) [![npm bundle size](https://img.shields.io/bundlephobia/minzip/ss-ngrx-router-store?label=npm%20-%20minzipped&logo=npm)](https://www.npmjs.com/package/ss-ngrx-router-store) [![npm license](https://img.shields.io/npm/l/ss-ngrx-router-store)](https://github.com/SachinShekhar/ss-ngrx-router-store/blob/master/LICENSE)
 
 `ss-ngrx-router-store` library serializes Angular router snapshots for NgRx Router Store. It searches entire route tree and puts only useful attributes into NgRx store (no need to think about children, firstChild, parent, root etc). The result is very clean ([check demo](https://sachinshekhar.github.io/ss-ngrx-router-store)). It is useful to newbies and experts alike.
 
-![Demo](./demo.png)
+![Demo](https://sachinshekhar.github.io/ss-ngrx-router-store/demo.png)
 
 ## Installation
 
-![npm peer dependency version](https://img.shields.io/npm/dependency-version/ss-ngrx-router-store/peer/@angular/router?logo=angular) ![npm peer dependency version](https://img.shields.io/npm/dependency-version/ss-ngrx-router-store/peer/@ngrx/router-store)
+![npm peer dependency @angular/router version](https://img.shields.io/npm/dependency-version/ss-ngrx-router-store/peer/@angular/router?logo=angular) ![npm peer dependency @ngrx/store version](https://img.shields.io/npm/dependency-version/ss-ngrx-router-store/peer/@ngrx/store)
 
 1.  Make sure that you've installed and setup `@angular/router` and `@ngrx/store`.
 
@@ -49,11 +49,13 @@
 
     ```
 
-    No need to install anything from `@ngrx/router-store`. Also, keep in mind that import orders matter.
+    No need to import anything from `@ngrx/router-store`. Also, keep in mind that import orders matter.
 
-4.  Done! You can see `router` state in `Redux DevTools` browser extensions.
+4.  Done! You can see `router` state in `Redux DevTools`.
 
 ### For Advanced Users
+
+![npm peer dependency @ngrx/router-store version](https://img.shields.io/npm/dependency-version/ss-ngrx-router-store/peer/@ngrx/router-store)
 
 `SSNgRxRouterStoreModule` uses default settings of `@ngrx/router-store`. If you want to override default settings, you can setup `@ngrx/router-store` yourself and use serializer provided by `ss-ngrx-router-store`. For example:
 
@@ -115,7 +117,7 @@ export class YourComponent implements OnInit {
 
 ## Limitations
 
-If keys of multiple params are same, only child route param will be serialized because of limitation of `Typescript` / `Javascript`. e.g. If your path is
+If keys of multiple params are same, only child route param will be serialized. e.g. If your path is
 
 ```
 path: 'folder/:id/mail/:id'
