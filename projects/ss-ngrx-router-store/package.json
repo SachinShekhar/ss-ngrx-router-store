@@ -23,11 +23,11 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^9.0.0 || ^8.0.0",
-    "@angular/core": "^9.0.0 || ^8.0.0",
-    "@angular/router": "^9.0.0 || ^8.0.0",
+    "@angular/common": ">=6.1.10",
+    "@angular/core": ">=6.1.10",
+    "@angular/router": ">=6.1.10",
     "tslib": "^1.10.0",
-    "@ngrx/router-store": "^9.0.0 || ^8.0.0",
-    "@ngrx/store": "^9.0.0 || ^8.0.0"
+    "@ngrx/router-store": ">=7.4.0",
+    "@ngrx/store": ">=7.4.0"
   }
 }
