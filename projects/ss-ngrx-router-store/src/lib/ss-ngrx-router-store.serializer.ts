@@ -33,6 +33,7 @@ function searchRouterStateTree(
   return route.children.reduce(
     (obj, childRoute) => ({
       ...obj,
+      ...getter(route),
       ...searchRouterStateTree(childRoute, getter)
     }),
     {}
