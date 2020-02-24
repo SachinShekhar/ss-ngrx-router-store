@@ -10,16 +10,22 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { reducers, metaReducers } from './app.reducer';
 import { DemoComponent } from './demo/demo.component';
+import { ChildComponent } from './child/child.component';
 
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
     component: DemoComponent
   },
   {
-    path: 'folders/:folderId/mails/:mailId',
-    component: DemoComponent
+    path: 'folders/:folderId',
+    component: DemoComponent,
+    children: [
+      {
+        path: 'mails/:mailId',
+        component: ChildComponent
+      }
+    ]
   },
   {
     path: 'route-with-static-data',
@@ -27,15 +33,15 @@ const routes: Routes = [
     data: {
       lib: 'ss-ngrx-router-store'
     }
-  },
-  {
-    path: '**',
-    component: DemoComponent
   }
+  // {
+  //   path: '**',
+  //   component: DemoComponent
+  // }
 ];
 
 @NgModule({
-  declarations: [AppComponent, DemoComponent],
+  declarations: [AppComponent, DemoComponent, ChildComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
