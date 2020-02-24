@@ -152,6 +152,12 @@ params: {
 
 Query Params and Fragment don't have such limitations because they are global to every route in the tree.
 
+### Limitation with Matrix Params
+
+Matrix Params which aren't attached with leaf node of the router state tree won't be serialized. This is because Angular Router treats them as `Parameter` of `URL Segment`, not `Param`. If you visit `folder/inbox/mail/122458656;fullView=true`, `fullView` matrix param will be serialized, but if you visit `folder/inbox;sort=newfirst/mail/122458656`, `sort` matrix param will not be serialized.
+
+**Solution:** None. This is on library's roadmap.
+
 ## Interfaces
 
 `ss-ngrx-router-store` also exposes interfaces used by serialized state. You can use them to write type-safe codes.

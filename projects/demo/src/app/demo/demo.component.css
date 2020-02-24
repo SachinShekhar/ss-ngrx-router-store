@@ -2,7 +2,7 @@
   font-size: large;
 }
 
-a {
+.navigation > a {
   cursor: pointer;
   text-decoration: underline;
   font-family: 'Courier New', Courier, monospace;
