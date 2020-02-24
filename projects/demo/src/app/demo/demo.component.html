@@ -18,10 +18,16 @@
     <br />
     <b>Data: </b>
     <a (click)="navigate('data')">route-with-static-data</a>
-    <p>
-      Feel free to experiment in the address bar..
-    </p>
   </div>
+  <p>
+    Feel free to experiment in the address bar.. Or,
+    <a
+      href="https://stackblitz.com/edit/ss-ngrx-router-store?file=src/app/routing.module.ts"
+      target="_blank"
+      rel="noopener"
+      >edit routes on Stackblitz</a
+    >..
+  </p>
   <div class="state">
     <h3>SS Router State:</h3>
     <ss-ngrx-router-store-state></ss-ngrx-router-store-state>
@@ -31,3 +37,5 @@
     </p>
   </div>
 </div>
+
+<router-outlet></router-outlet>
