@@ -1,9 +1,0 @@
-.container {
-  font-size: large;
-}
-
-.navigation > a {
-  cursor: pointer;
-  text-decoration: underline;
-  font-family: 'Courier New', Courier, monospace;
-}
