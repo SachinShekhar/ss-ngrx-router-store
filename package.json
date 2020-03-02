@@ -1,6 +1,6 @@
 {
   "name": "ss-ngrx-router-store-library",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "scripts": {
     "delete-dist": "del dist",
     "lib:build": "ng build ss-ngrx-router-store --prod",
