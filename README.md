@@ -109,7 +109,7 @@ export class YourComponent implements OnInit {
 | getRouterState  | Select partial state of NgRx Router Store                           |
 | getRouteMap     | Select map containing URL, Params, Query Params, Fragment & Data    |
 | getNavigationId | Select Navigation Id which automatically increments upon navigation |
-| getURL          | Select current URL visible in the address bar (without hostname)    |
+| getURL          | Select current URL visible in the address bar (after `base href`)   |
 | getParams       | Select Params (including Matrix Params) from all routes             |
 | getQueryParams  | Select global Query Params                                          |
 | getFragment     | Select global Fragment                                              |

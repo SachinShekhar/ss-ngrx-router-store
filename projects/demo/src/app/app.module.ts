@@ -43,8 +43,10 @@ const routes: Routes = [
 @NgModule({
   declarations: [AppComponent, DemoComponent, ChildComponent],
   imports: [
-    BrowserModule,
-    RouterModule.forRoot(routes),
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    RouterModule.forRoot(routes, {
+    initialNavigation: 'enabled'
+}),
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
