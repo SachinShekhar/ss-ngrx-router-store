@@ -33,11 +33,11 @@ const routes: Routes = [
     data: {
       lib: 'ss-ngrx-router-store'
     }
+  },
+  {
+    path: '**',
+    component: DemoComponent
   }
-  // {
-  //   path: '**',
-  //   component: DemoComponent
-  // }
 ];
 
 @NgModule({
@@ -45,8 +45,8 @@ const routes: Routes = [
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     RouterModule.forRoot(routes, {
-    initialNavigation: 'enabled'
-}),
+      initialNavigation: 'enabled'
+    }),
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
